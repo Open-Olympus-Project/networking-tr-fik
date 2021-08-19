@@ -1,0 +1,28 @@
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    service.beta.kubernetes.io/azure-load-balancer-resource-group: service-aks-poc
+  labels:
+    app.kubernetes.io/instance: ingress
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: traefik
+    argocd.argoproj.io/instance: ingress
+    helm.sh/chart: traefik-9.19.0
+  name: ingress-traefik
+  namespace: networking
+spec:
+  loadBalancerIP: {{ .Values.ip }}
+  ports:
+    - name: web
+      port: 80
+      protocol: TCP
+      targetPort: web
+    - name: websecure
+      port: 443
+      protocol: TCP
+      targetPort: websecure
+  selector:
+    app.kubernetes.io/instance: ingress
+    app.kubernetes.io/name: traefik
+  type: LoadBalancer
