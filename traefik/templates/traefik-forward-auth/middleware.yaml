@@ -1,0 +1,11 @@
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
+  name: auth
+spec:
+  forwardAuth:
+    address: https://traefikauth.YOURDOMAIN.com/_oauth
+    trustForwardHeader: true
+    authResponseHeaders:
+      - X-Forwarded-User
