@@ -31,7 +31,7 @@ spec:
         - name: DEFAULT_PROVIDER
           value: "oidc"
         - name: URL_PATH
-          value: "/auth/_oauth"
+          value: {{ .Values.traefikForwardAuth.authPath | quotes }}
         - name: PROVIDERS_OIDC_ISSUER_URL
           valueFrom:
             secretKeyRef:
