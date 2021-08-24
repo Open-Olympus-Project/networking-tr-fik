@@ -1,0 +1,3 @@
+traefikForwardAuth:
+  host: <host>
+  authPath: /_oauth

@@ -25,7 +25,3 @@ services:
 traefik:
   service:
     enabled: false
-
-traefikForwardAuth:
-  host: <host>
-  authPath: /_oauth
