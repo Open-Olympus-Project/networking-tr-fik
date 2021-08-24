@@ -4,7 +4,7 @@ metadata:
   name: {{ .Values.middleware.name }}
 spec:
   forwardAuth:
-    address: 'https://{{ .Values.authHost }}{{ .Values.authPath }}'
+    address: 'http://traefik-forward-auth-service.networking.svc:4181'
     authResponseHeaders:
       - X-Forwarded-User
     # TODO remove
