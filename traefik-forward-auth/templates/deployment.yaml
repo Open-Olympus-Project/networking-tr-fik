@@ -30,6 +30,8 @@ spec:
         env:
         - name: DEFAULT_PROVIDER
           value: "oidc"
+        - name: DOMAIN
+          value: {{ .Values.appHost | quote }}
         - name: URL_PATH
           value: {{ .Values.authPath | quote }}
         - name: LOG_LEVEL
