@@ -1,6 +1,8 @@
 appName: traefik-forward-auth
 
-host: <host>
+appHost: <app_host>
+
+authHost: <auth_host>
 authPath: /_oauth
 
 # Should be the same as traefik uses
