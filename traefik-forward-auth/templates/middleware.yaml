@@ -4,7 +4,7 @@ metadata:
   name: {{ .Values.middleware.name }}
 spec:
   forwardAuth:
-    address: 'https://{{ .Values.host }}{{ .Values.authPath }}'
+    address: http://{{ printf "%s.%s" .Values.appName .Release.Namespace }}:4181
     authResponseHeaders:
       - X-Forwarded-User
     trustForwardHeader: true
