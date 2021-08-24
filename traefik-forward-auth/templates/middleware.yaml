@@ -4,7 +4,9 @@ metadata:
   name: {{ .Values.middleware.name }}
 spec:
   forwardAuth:
-    address: http://{{ printf "%s.%s" .Values.appName .Release.Namespace }}:4181{{ .Values.authPath }}
+    address: http://{{ printf "%s.%s" .Values.appName .Release.Namespace }}.svc:4181
     authResponseHeaders:
       - X-Forwarded-User
     trustForwardHeader: true
+
+    # http://vault.tooling.svc:8200

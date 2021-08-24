@@ -1,7 +1,6 @@
 appName: traefik-forward-auth
 
 host: <host>
-authPath: /_oauth
 
 # Should be the same as traefik uses
 saName: traefik
