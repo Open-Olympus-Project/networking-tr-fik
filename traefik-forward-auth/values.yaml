@@ -29,5 +29,9 @@ deployment:
           name: sso-secret
           key: jwtsecret
 
+service:
+  port: 4181
+  targetPort: 4181
+
 middleware:
   name: auth
