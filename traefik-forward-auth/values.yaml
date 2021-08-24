@@ -1,3 +1,33 @@
-traefikForwardAuth:
-  host: <host>
-  authPath: /_oauth
+appName: traefik-forward-auth
+
+host: <host>
+authPath: /_oauth
+
+# Should be the same as traefik uses
+saName: traefik
+
+deployment:
+  env:
+  - name: PROVIDERS_OIDC_ISSUER_URL
+    valueFrom:
+      secretKeyRef:
+          name: sso-secret
+          key: issuerurl
+  - name: PROVIDERS_OIDC_CLIENT_ID
+    valueFrom:
+      secretKeyRef:
+          name: sso-secret
+          key: clientid
+  - name: PROVIDERS_OIDC_CLIENT_SECRET
+    valueFrom:
+      secretKeyRef:
+          name: sso-secret
+          key: clientsecret
+  - name: SECRET
+    valueFrom:
+      secretKeyRef:
+          name: sso-secret
+          key: jwtsecret
+
+middleware:
+  name: auth

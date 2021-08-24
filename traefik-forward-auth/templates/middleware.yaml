@@ -1,10 +1,10 @@
 apiVersion: traefik.containo.us/v1alpha1
 kind: Middleware
 metadata:
-  name: auth
+  name: {{ .Values.middleware.name }}
 spec:
   forwardAuth:
-    address: 'https://{{ .Values.traefikForwardAuth.host }}{{ .Values.traefikForwardAuth.authPath }}'
+    address: 'https://{{ .Values.host }}{{ .Values.authPath }}'
     authResponseHeaders:
       - X-Forwarded-User
     trustForwardHeader: true
