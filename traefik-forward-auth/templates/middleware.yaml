@@ -4,4 +4,4 @@ metadata:
   name: {{ .Values.middleware.name }}
 spec:
   forwardAuth:
-    address: 'https://{{ .Values.host }}{{ .Values.authPath }}'
+    address: 'http://traefik-forward-auth.auth'
