@@ -30,14 +30,10 @@ spec:
         env:
         - name: DEFAULT_PROVIDER
           value: "oidc"
-        - name: DOMAIN
-          value: {{ .Values.appHost | quote }}
         - name: URL_PATH
           value: {{ .Values.authPath | quote }}
         - name: LOG_LEVEL
           value: "trace"
         - name: COOKIE_DOMAIN
           value: {{ .Values.appHost | quote}}
-        - name: AUTH_HOST
-          value: {{ .Values.authHost | quote }}
 {{ .Values.deployment.env | toYaml | indent 8}}
