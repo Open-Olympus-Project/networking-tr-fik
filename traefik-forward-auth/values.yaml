@@ -1,6 +1,7 @@
 appName: traefik-forward-auth
 
 host: <host>
+authPath: /_oauth
 
 # Should be the same as traefik uses
 saName: traefik
@@ -29,8 +30,8 @@ deployment:
           key: jwtsecret
 
 service:
-  port: 4181
-  targetPort: 4181
+  port: 80
+  targetPort: 4181 
 
 middleware:
   name: auth
