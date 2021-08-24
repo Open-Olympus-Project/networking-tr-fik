@@ -5,6 +5,8 @@ metadata:
 spec:
   forwardAuth:
     address: 'https://{{ .Values.host }}{{ .Values.authPath }}'
+    authResponseHeaders:
+      - X-Forwarded-User
     # TODO remove
     tls:
       insecureSkipVerify: true
