@@ -35,5 +35,5 @@ spec:
         - name: COOKIE_DOMAIN
           value: {{ .Values.host | quote}}
         - name: AUTH_HOST
-          value: {{ printf "%s%s" .Values.host .Values.authPath | quote }}
+          value: {{ .Values.host | quote }}
 {{ .Values.deployment.env | toYaml | indent 8}}
